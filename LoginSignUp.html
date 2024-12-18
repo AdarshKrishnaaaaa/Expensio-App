@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Register Form</title>
+    <!--Boxicons CDN-->
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/?size=100&id=jTZgNRupW50C&format=png&color=ffffff">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="LoginSignUp.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <span class="rotate-bg"></span>
+        <span class="rotate-bg2"></span>
+
+        <div class="form-box login">
+            <h2 class="title animation" style="--i:0; --j:21">LOGIN</h2>
+            <form id="login-form" onsubmit="return validateLogin()">
+                <div class="input-box animation" style="--i:1; --j:22">
+                    <input type="text" id="login-username"  name="userName" required>
+                    <label>Username</label>
+                    <i class="bx bxs-user"></i>
+                </div>
+                <div class="input-box animation" style="--i:2; --j:23">
+                    <input type="password" id="login-password" required>
+                    <label>Password</label>
+                    <i class="bx bxs-lock-alt"></i>
+                </div>
+                <button type="submit" class="btn animation" style="--i:3; --j:24">Login</button>
+                <div class="linkTxt animation" style="--i:5; --j:25">
+                    <p>Don't have an account? <a href="#" class="register-link">Sign Up</a></p>
+                </div>
+            </form>
+        </div>
+
+        <div class="info-text login">
+            <h2 class="animation" style="--i:0; --j:20">Welcome Back!</h2>
+            <p class="animation" style="--i:1; --j:21">"Your money, your rules. Start tracking now."</p>
+        </div>
+
+        <div class="form-box register">
+            <h2 class="title animation" style="--i:17; --j:0">SIGN UP</h2>
+            <form id="register-form" onsubmit="return validateRegister()">
+                <div class="input-box animation" style="--i:18; --j:1">
+                    <input type="text" id="register-username" required>
+                    <label>Username</label>
+                    <i class="bx bxs-user"></i>
+                </div>
+                <div class="input-box animation" style="--i:19; --j:2">
+                    <input type="email" id="register-email" required>
+                    <label>Email</label>
+                    <i class="bx bxs-envelope"></i>
+                </div>
+                <div class="input-box animation" style="--i:20; --j:3">
+                    <input type="password" id="register-password" required>
+                    <label>Password</label>
+                    <i class="bx bxs-lock-alt"></i>
+                </div>
+                <div class="input-box animation" style="--i:21; --j:4">
+                    <input type="password" id="confirm-password" required>
+                    <label>Confirm Password</label>
+                    <i class="bx bxs-lock-alt"></i>
+                </div>
+                <button type="submit" class="btn animation" style="--i:21;--j:4">Sign Up</button>
+                <div class="linkTxt animation" style="--i:22; --j:5">
+                    <p>Already have an account? <a href="#" class="login-link">Login</a></p>
+                </div>
+            </form>
+        </div>
+
+        <div class="info-text register">
+            <h2 class="animation" style="--i:17; --j:0;">Welcome Back!</h2>
+            <p class="animation" style="--i:18; --j:1;">"Stay in control of your money. Every penny counts!"</p>
+        </div>
+    </div>
+
+    <script>
+        const wrapper = document.querySelector('.wrapper');
+        const registerLink = document.querySelector('.register-link');
+        const loginLink = document.querySelector('.login-link');
+        // localStorage.clear()
+
+        registerLink.onclick = () => {
+            wrapper.classList.add('active');
+        };
+
+        loginLink.onclick = () => {
+            wrapper.classList.remove('active');
+        };
+
+        // Validate login credentials
+        function validateLogin() {
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+
+            const storedData = JSON.parse(localStorage.getItem('users')) || [];
+            const user = storedData.find(user => user.username === username && user.password === password);
+
+            if (!user) {
+                alert("Invalid username or password.");
+                return false;
+            }
+
+            alert("Login successful!");
+            window.location.href = 'Home.html';
+            sessionStorage.setItem('userName',username)
+            return false;
+        }
+
+        // Validate and store registration data
+        function validateRegister() {
+            const username = document.getElementById('register-username').value;
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            const storedData = JSON.parse(localStorage.getItem('users')) || [];
+            if (storedData.some(user => user.username === username || user.email === email)) {
+                alert("Username or email already exists.");
+                return false;
+            }
+
+            storedData.push({ username, email, password });
+            localStorage.setItem('users', JSON.stringify(storedData));
+            alert("Registration successful!");
+            return true;
+        }
+    </script>
+</body>
+
+</html>

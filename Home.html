@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="https://cdn.pixabay.com/photo/2015/01/05/19/50/apple-589641_640.png">
+    <link rel="stylesheet" href="Home.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="bg-black">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <img src="https://cdn.pixabay.com/photo/2015/01/05/19/50/apple-589641_640.png" alt="Logo">
+            <span class="text-lg font-bold">Expensio</span>
+        </div>
+        <div class="menu-btn" id="menuBtn">&#9776;</div>
+        <div class="nav-items" id="navItems">
+            <a href="./Expense.html" class="nav-item">Transactions</a>
+            <a href="./Reminder.html" class="nav-item">Reminder</a>
+            <a href="./PaymentHistory.html" class="nav-item">History</a>
+            <a href="#" class="nav-item" onclick="signOutBtn()">Sign Out</a>
+        </div>
+    </nav>
+
+    <div class="homePoster">
+        <div class="siteImage">
+            <img src="https://cdn3d.iconscout.com/3d/premium/thumb/financial-expenses-5706069-4755624.png" alt="">
+        </div>
+       <div class="siteContents">
+        <div class="siteName">
+            <p>Expensio</p>
+           </div>
+           <div class="siteQuote">
+            <p>"Tracking today ensures a better tomorrow."</p>
+           </div>
+       </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="w-full p-6 bg-[url('money.jpg')] bg-contain bg-center">
+        <div class="rounded-lg shadow-lg p-6">
+            <p class="text-3xl font-bold text-white">Welcome <span id="Name"></span></p>
+            <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="card yellow-card">
+                    <p class="card-title">Total Expense</p>
+                    <p id="totalExpense" class="card-value">&#8377; 0</p>
+                </div>
+                <div class="card green-card">
+                    <p class="card-title">Total Income</p>
+                    <p id="totalIncome" class="card-value">&#8377; 0</p>
+                </div>
+                <div class="card blue-card">
+                    <p class="card-title">Net Worth</p>
+                    <p id="netWorth" class="card-value">&#8377; 0</p>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4 roundEd">
+            <div class="w-full sm:w-1/2  p-6 rounded-lg" style="width: 35%;">
+                <h2 class="section-title">Expense vs Income</h2>
+                <div class="mx-auto">
+                    <canvas id="expenseIncomeChart" class="w-full h-64"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="Home.js"></script>
+</body>
+
+</html>

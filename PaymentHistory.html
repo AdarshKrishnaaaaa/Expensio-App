@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment History</title>
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/?size=100&id=jTZgNRupW50C&format=png&color=ffffff">
+    <link rel="stylesheet" href="PaymentHistory.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-logo">
+            <img src="https://img.icons8.com/?size=100&id=jTZgNRupW50C&format=png&color=ffffff" alt="Logo">
+            <span class="text-lg font-bold">Expensio</span>
+        </div>
+        <div class="menu-btn" id="menuBtn">&#9776;</div>
+        <div class="nav-items" id="navItems">
+            <a href="./Home.html" class="nav-item"><img class="homeIcon" src="https://cdn-icons-png.flaticon.com/128/10266/10266920.png" alt=""></a>
+            <a href="./Expense.html" class="nav-item">Transactions</a>
+            <a href="./Reminder.html" class="nav-item">Reminder</a>
+            <a href="#" class="nav-item" onclick="signOutBtn()">Sign Out</a>
+        </div>
+    </nav>
+    <header>
+        <h1>Payment History</h1>
+    </header>
+    <main>
+        <div id="filter-container">
+            <label for="filter" class="filter">Select Type : </label>
+            <select id="filter">
+                <option value="all">All</option>
+                <option value="Income">Income</option>
+                <option value="Expense">Expense</option>
+                <option value="Savings">Savings</option>
+            </select>
+        </div>
+        <section id="history-container">
+            <ul id="history-list" class="filter-option">
+                <!-- Transactions will be loaded dynamically -->
+            </ul>
+        </section>
+    </main>
+   
+    <script src="PaymentHistory.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+ /* Basic styling for the body */
+ body {
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Animated text */
+.animate-text {
+    font-size: 4rem;
+    font-weight: 700;
+    text-transform: uppercase; /* Makes the text all capital letters */
+    opacity: 0;
+    animation: slideInFromTop 2s ease-out forwards;
+}
+
+/* Slide-in animation from top */
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-100vh); /* Starts off the screen (above) */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Ends in the normal position */
+    }
+}
+
+/* Styling for the button */
+.btn-custom {
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: black;
+    background-color: white;
+    border: none;
+    border-radius: 25px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.btn-custom:hover {
+    transform: scale(1.1);
+    background-color: #f0f0f0;
+}

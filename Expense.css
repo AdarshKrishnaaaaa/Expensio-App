@@ -1,0 +1,237 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(./Images/bg.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+}
+
+/* Container */
+.main-Div {
+    max-width: 900px;
+    margin: 50px auto;
+    border-radius: 12px;
+    /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); */
+    padding: 30px;
+}
+
+/* Header */
+h1,
+h2 {
+    text-align: center;
+    margin: 20px 0;
+    color: #f8f9fa;
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+}
+
+/* Display Summary Section */
+.display-Div {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.display {
+    flex: 1;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: #333;
+}
+
+.display h4 {
+    font-size: 24px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.display p {
+    font-size: 18px;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+form input,
+form select,
+form button {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+    width: calc(33% - 10px);
+    font-size: 14px;
+}
+
+form input:focus,
+form select:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.7);
+    outline: none;
+}
+
+form button {
+    width: 100%;
+    background: linear-gradient(135deg, #28a745, #218838);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+form button:hover {
+    background: linear-gradient(135deg, #218838, #1e7e34);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+table th,
+table td {
+    text-align: left;
+    padding: 15px;
+}
+
+table th {
+    background-color: rgba(0, 0, 0, 0.9);
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+table td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .display-Div {
+        flex-direction: column;
+    }
+
+    form input,
+    form select,
+    form button {
+        width: 100%;
+    }
+
+    table {
+        font-size: 14px;
+    }
+}
+
+.delBtn {
+    background-color: #218838;
+    color: white;
+    border: white;
+    border-radius: 6px;
+}
+
+.delBtn:hover {
+    background: linear-gradient(135deg, #218838, #1e7e34);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Navbar */
+
+.navbar {
+    background-color: #121212;
+    padding: 1rem 2rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+.nav-items {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-item {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-logo img {
+    width: 40px;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.homeIcon {
+    width: 30%;
+    position: relative;
+    right: 0px;
+}
